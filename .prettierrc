@@ -1,0 +1,39 @@
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "quoteProps": "as-needed",
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "singleAttributePerLine": false,
+  "endOfLine": "lf",
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/shared/lib/(.*)$",
+    "^@/shared/types/(.*)$",
+    "^@/shared/stores/(.*)$",
+    "^@/shared/context/(.*)$",
+    "^@/shared/services/(.*)$",
+    "^@/shared/hooks/(.*)$",
+    "^@/shared/components/(.*)$",
+    "^@/shared/(.*)$",
+    "",
+    "^@/features/(.*)$",
+    "",
+    "^@/lib/(.*)$",
+    "",
+    "^[./]"
+  ],
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ]
+}
