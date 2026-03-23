@@ -12,7 +12,7 @@ function Spinner({
     <HugeiconsIcon
       icon={Loading03Icon}
       /* @ts-expecterror */
-      strokeWidth={2}
+      strokeWidth={strokeWidth}
       role="status"
       aria-label="Loading"
       className={cn("size-4 animate-spin", className)}
