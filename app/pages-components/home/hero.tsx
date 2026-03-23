@@ -1,25 +1,49 @@
-import { PixelLiquidBg } from "@/components/unlumen-ui/pixel-liquid-bg";
+"use client";
 
-export function Hero() {
+import { PixelLiquidBg } from "@/components/unlumen-ui/pixel-liquid-bg";
+import goDown from "@/public/arrow-down-01-stroke-rounded.svg";
+import logo from "@/public/eldenring_transparent.png";
+import Image from "next/image";
+
+export default function Hero() {
   return (
     <div className="relative h-screen min-h-screen">
       <PixelLiquidBg pixelSize={12} />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-4 text-start">
-        <div className="flex flex-col text-5xl text-white shadow-2xl">The</div>
-        <div className="flex flex-col text-5xl text-white shadow-2xl">
-          Elden
+      <div className="absolute inset-0 flex items-center justify-center gap-10">
+        <div className="flex flex-col items-center justify-center gap-3 p-8 px-4 text-start shadow-2xl">
+          <div className="shadow-4xl flex flex-col text-6xl text-white max-sm:text-4xl">
+            The
+          </div>
+          <div className="shadow-4xl flex flex-col text-6xl text-white max-sm:text-4xl">
+            Elden
+          </div>
+          <div className="shadow-4xl flex flex-col text-6xl text-white max-sm:text-4xl">
+            Ring
+          </div>
+          <div className="shadow-4xl flex flex-col text-6xl text-white max-sm:text-4xl">
+            WiKi
+          </div>
         </div>
-        <div className="flex flex-col text-5xl text-white shadow-2xl">Ring</div>
-        <div className="flex flex-col text-5xl text-white shadow-2xl">WiKi</div>
+        <div>
+          <Image
+            src={logo}
+            alt="Logo"
+            width={200}
+            height={200}
+            className="shadow-4xl transition-transform duration-300 hover:scale-110"
+          />
+        </div>
       </div>
-      <div>
-        <Image
-          src={logo}
-          alt="Logo"
-          width={60}
-          height={60}
-          className="absolute top-4 left-4 z-10"
-        />
+      <div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 scale-110 transform animate-pulse rounded-full bg-black/20 p-3 shadow-2xl transition-transform duration-300 hover:scale-150"
+        onClick={() => {
+          const categoriesSection = document.getElementById("categories");
+          if (categoriesSection) {
+            categoriesSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
+      >
+        <Image src={goDown} alt="Go Down" width={40} height={40} className="" />
       </div>
     </div>
   );

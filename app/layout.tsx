@@ -5,6 +5,8 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 
+import Navbar from "./pages-components/home/navbar";
+
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
@@ -45,7 +47,10 @@ export default function RootLayout({
         jetbrainsMono.variable,
       )}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
