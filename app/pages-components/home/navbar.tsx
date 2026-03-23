@@ -2,15 +2,28 @@ import React from "react";
 
 import logo from "@/public/navbar-logo.png";
 import Image from "next/image";
+import Link from "next/link";
 
-export function Navbar() {
+export default function Navbar() {
   return (
     <div className="absolute top-0 left-0 z-10 w-full">
       <div className="flex h-24 w-full items-center justify-between px-4">
         <div>
-          <Image src={logo} alt="Logo" width={60} height={60} />
+          <Link href="/">
+            <Image src={logo} alt="Logo" width={60} height={60} />
+          </Link>
         </div>
-        <div className="flex space-x-4"></div>
+        <div className="mr-4 flex space-x-4">
+          <Link href="/bosses">
+            <div className="text-white hover:text-gray-300">Bosses</div>
+          </Link>
+          <Link href="/weapons">
+            <div className="text-white hover:text-gray-300">Weapons</div>
+          </Link>
+          <Link href="/items">
+            <div className="text-white hover:text-gray-300">Items</div>
+          </Link>
+        </div>
       </div>
     </div>
   );

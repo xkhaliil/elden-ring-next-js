@@ -31,3 +31,6 @@ jobs:
 
       - name: Check Format (no fix)
         run: npm run format:check
+
+      - name: Run tests
+        run: npm test
