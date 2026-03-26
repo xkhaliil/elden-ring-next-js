@@ -32,5 +32,8 @@ jobs:
       - name: Check Format (no fix)
         run: npm run format:check
 
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
       - name: Run tests
         run: npm test
