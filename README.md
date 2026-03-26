@@ -1,6 +1,6 @@
-# Mekla: Elden Ring Companion
+# ERW: Elden Ring Companion
 
-Mekla is a modern web application built with Next.js, designed to help Elden Ring players explore bosses, weapons, and items with ease. Featuring a beautiful UI, responsive design, and interactive components, Mekla is your go-to resource for discovering everything the Lands Between has to offer.
+ERW is a modern web application built with Next.js, designed to help Elden Ring players explore bosses, weapons, and items with ease. Featuring a beautiful UI, responsive design, and interactive components, Mekla is your go-to resource for discovering everything the Lands Between has to offer.
 
 ![Screenshot](public/eldenring_transparent.png)
 
