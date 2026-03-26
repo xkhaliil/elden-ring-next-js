@@ -45,7 +45,7 @@ export default function Signup() {
       <div className="relative z-10 flex h-full w-full items-center justify-center">
         <div
           style={{ borderRadius: "16px" }}
-          className="h-full max-h-[601px] w-full max-w-[510px] bg-white p-8 shadow-lg"
+          className="h-full max-h-150.25 w-full max-w-127.5 bg-white p-8 shadow-lg"
         >
           <div className="flex flex-col items-center justify-center">
             <div className="text-2xl font-bold text-[#202224]">
@@ -56,7 +56,7 @@ export default function Signup() {
             </div>
             <div className="mt-10 w-full items-start justify-start gap-2">
               <div className="text-xs text-[#202224]">Email address:</div>
-              <div className="mt-3 max-h-[56px] w-full max-w-[516px]">
+              <div className="mt-3 max-h-14 w-full max-w-129">
                 <input
                   type="email"
                   placeholder="test@test.com"
@@ -66,7 +66,7 @@ export default function Signup() {
             </div>
             <div className="mt-10 w-full items-start justify-start gap-2">
               <div className="text-xs text-[#202224]">Username</div>
-              <div className="mt-3 max-h-[56px] w-full max-w-[516px]">
+              <div className="mt-3 max-h-14 w-full max-w-129">
                 <input
                   type="username"
                   placeholder="jhondoe"
@@ -82,7 +82,7 @@ export default function Signup() {
                 </div>
               </div>
 
-              <div className="mt-3 max-h-[56px] w-full max-w-[516px]">
+              <div className="mt-3 max-h-14 w-full max-w-129">
                 <input
                   type="password"
                   placeholder="********"
