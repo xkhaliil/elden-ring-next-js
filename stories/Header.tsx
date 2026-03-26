@@ -1,8 +1,9 @@
-import logo from "@/public/navbar-logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
 import "./header.css";
+
+const logo = "/navbar-logo.png";
 
 type User = {
   name: string;
@@ -30,13 +31,13 @@ export const Header = ({
           </Link>
         </div>
         <div className="mr-4 flex space-x-4">
-          <Link href="/bosses">
+          <Link href="/bosses" onClick={onclicktoBosses}>
             <div className="text-white hover:text-gray-300">Bosses</div>
           </Link>
-          <Link href="/weapons">
+          <Link href="/weapons" onClick={onclicktoWeapons}>
             <div className="text-white hover:text-gray-300">Weapons</div>
           </Link>
-          <Link href="/items">
+          <Link href="/items" onClick={onclicktoItems}>
             <div className="text-white hover:text-gray-300">Items</div>
           </Link>
         </div>

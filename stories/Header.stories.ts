@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { expect, fn } from "storybook/test";
+import { expect, fn, within } from "storybook/test";
 
 import { Header } from "./Header";
 
 const meta = {
   title: "Example/Header",
   component: Header,
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: "fullscreen",
   },
   args: {
@@ -23,37 +21,37 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const onclicktoBosses: Story = {
-  play: async ({ args }) => {
-    // Simulate a click on the Bosses button
-    const bossesButton = document.querySelector(
-      'Link[href="/bosses"] div',
-    ) as HTMLElement;
-    bossesButton.click();
-
-    // Assert that the onclicktoBosses function was called
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const bossesLink = canvas.getByRole("link", { name: /bosses/i });
+    bossesLink.addEventListener("click", (e) => e.preventDefault(), {
+      once: true,
+    });
+    bossesLink.click();
     expect(args.onclicktoBosses).toHaveBeenCalled();
   },
 };
-export const onclicktoWeapons: Story = {
-  play: async ({ args }) => {
-    // Simulate a click on the Weapons button
-    const weaponsButton = document.querySelector(
-      'Link[href="/weapons"] div',
-    ) as HTMLElement;
-    weaponsButton.click();
 
-    // Assert that the onclicktoWeapons function was called
+export const onclicktoWeapons: Story = {
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const weaponsLink = canvas.getByRole("link", { name: /weapons/i });
+    weaponsLink.addEventListener("click", (e) => e.preventDefault(), {
+      once: true,
+    });
+    weaponsLink.click();
     expect(args.onclicktoWeapons).toHaveBeenCalled();
   },
 };
 
 export const onclicktoItems: Story = {
-  play: async ({ args }) => {
-    const itemsButton = document.querySelector(
-      'Link[href="/items"] div',
-    ) as HTMLElement;
-    itemsButton.click();
-
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const itemsLink = canvas.getByRole("link", { name: /items/i });
+    itemsLink.addEventListener("click", (e) => e.preventDefault(), {
+      once: true,
+    });
+    itemsLink.click();
     expect(args.onclicktoItems).toHaveBeenCalled();
   },
 };
