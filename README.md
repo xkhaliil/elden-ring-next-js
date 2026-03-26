@@ -6,7 +6,7 @@ ERW is a modern web application built with Next.js, designed to help Elden Ring 
 
 ## 🚀 Live Demo
 
-[Visit the deployed site](https://your-deployed-site-url.com)
+[Visit the deployed site](https://elden-ring-next-js.vercel.app/)
 
 ---
 
@@ -42,7 +42,6 @@ In the project directory, you can run:
 
 ## 🖼️ Screenshots
 
-You can find images and assets in the `public/` folder, such as `bosses.jpg`, `weapons.jpg`, and `items.jpg`.
 
 ---
 
