@@ -1,7 +1,5 @@
-import React from "react";
-
 import { Checkbox } from "@/components/ui/checkbox";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Field, FieldGroup } from "@/components/ui/field";
 import { Label } from "@/components/ui/label";
 
 export default function Signup() {
