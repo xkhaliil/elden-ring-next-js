@@ -16,6 +16,7 @@ import {
   Swords,
   X,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const PAGE_SIZE = 9;
 
@@ -81,6 +82,7 @@ const PILL_IDLE =
   "border-stone-800 bg-stone-900/40 text-stone-500 hover:border-stone-600 hover:text-stone-300";
 
 export default function Bosses() {
+  const router = useRouter();
   const [bosses, setBosses] = useState<Boss[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -350,6 +352,7 @@ export default function Bosses() {
               return (
                 <Card
                   key={boss.id}
+                  onClick={() => router.push(`/bosses/${boss.id}`)}
                   className="group cursor-pointer overflow-hidden border-stone-800/60 bg-stone-900/30 transition-all duration-300 hover:border-red-900 hover:bg-stone-900/60"
                 >
                   <CardContent className="p-0">

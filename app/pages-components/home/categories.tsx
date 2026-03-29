@@ -12,7 +12,6 @@ import bosses from "@/public/bosses.jpg";
 import items from "@/public/items.jpg";
 import weapons from "@/public/weapons.jpg";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Categories() {
   return (
