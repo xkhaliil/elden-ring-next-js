@@ -16,6 +16,7 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const PAGE_SIZE = 9;
 
@@ -52,6 +53,7 @@ function getTypeColor(type: string): string {
 type EffectFilter = "All" | "Has Effect" | "No Effect";
 
 export default function Items() {
+  const router = useRouter();
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -276,6 +278,7 @@ export default function Items() {
               return (
                 <Card
                   key={item.id}
+                  onClick={() => router.push(`/items/${item.id}`)}
                   className="group cursor-pointer overflow-hidden border-stone-800/60 bg-stone-900/30 transition-all duration-300 hover:border-red-900 hover:bg-stone-900/60"
                 >
                   <CardContent className="p-0">
