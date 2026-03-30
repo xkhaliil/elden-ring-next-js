@@ -1,8 +1,9 @@
-# Mekla - Elden Ring Explorer
+# ERW: Elden Ring Companion
 
-Mekla is a modern web application built with Next.js, designed to help Elden Ring players explore bosses, weapons, and items with ease. Featuring a beautiful UI, responsive design, and interactive components, Mekla is your go-to resource for discovering everything the Lands Between has to offer.
+ERW is a modern web application built with Next.js, designed to help Elden Ring players explore bosses, weapons, and items with ease. Featuring a beautiful UI, responsive design, and interactive components, Mekla is your go-to resource for discovering everything the Lands Between has to offer.
 
 ## 🚀 Live Demo
+
 
 [Visit the deployed site: Elden Ring Explorer](https://elden-ring-next-js.vercel.app/)
 
@@ -35,6 +36,7 @@ _Explore various consumables, key items, and crafting materials._
 
 ![Items Detail Page](./public/screenshots/ItemsDetailPage.png)
 _Detailed description and effects of a specific item._
+
 
 ---
 
@@ -69,6 +71,7 @@ In the project directory, you can run the following commands to use the availabl
    Go to [http://localhost:3000](http://localhost:3000)
 
 ---
+
 
 ## 🤝 Contributing
 
