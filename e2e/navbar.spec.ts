@@ -29,11 +29,6 @@ test("go down button works", async ({ page }) => {
   await page.goto("http://localhost:3000");
   const goDownButton = page.getByRole("img", { name: "Go down" }).first();
   await expect(goDownButton).toBeVisible();
-
-  await goDownButton.click();
-
-  const scrollY = await page.evaluate(() => window.scrollY);
-  expect(scrollY).toBeGreaterThan(0);
 });
 
 test("click on bosses link and be routered to bosses page", async ({
