@@ -59,3 +59,11 @@ test("click on items link and be routered to items page", async ({ page }) => {
   await itemsLink.click();
   await expect(page).toHaveURL("http://localhost:3000/items");
 });
+
+test("failing test", async ({ page }) => {
+  await page.goto("http://localhost:3000");
+  const itemsLink = page.getByText("Search Items");
+  await expect(itemsLink).toBeVisible();
+  await itemsLink.click();
+  await expect(page).toHaveURL("http://localhost:3000/bosses");
+});
