@@ -285,6 +285,7 @@ export default function Items() {
                     <div className="relative h-56 w-full overflow-hidden bg-stone-950">
                       {item.image ? (
                         <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={item.image}
                             alt={item.name}

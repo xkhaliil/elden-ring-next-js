@@ -13,6 +13,7 @@ const Image = ({
   height?: number;
   [key: string]: unknown;
 }) => (
+  // eslint-disable-next-line @next/next/no-img-element
   <img
     src={typeof src === "object" ? src.src : src}
     alt={alt}
