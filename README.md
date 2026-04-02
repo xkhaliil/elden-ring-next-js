@@ -4,7 +4,6 @@ ERW is a modern web application built with Next.js, designed to help Elden Ring 
 
 ## 🚀 Live Demo
 
-
 [Visit the deployed site: Elden Ring Explorer](https://elden-ring-next-js.vercel.app/)
 
 ---
@@ -36,7 +35,6 @@ _Explore various consumables, key items, and crafting materials._
 
 ![Items Detail Page](./public/screenshots/ItemsDetailPage.png)
 _Detailed description and effects of a specific item._
-
 
 ---
 
@@ -71,7 +69,6 @@ In the project directory, you can run the following commands to use the availabl
    Go to [http://localhost:3000](http://localhost:3000)
 
 ---
-
 
 ## 🤝 Contributing
 

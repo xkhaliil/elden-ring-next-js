@@ -116,6 +116,7 @@ export default function ItemDetail() {
               <div className="relative mb-12 overflow-hidden rounded-sm border border-stone-800/60">
                 {item.image ? (
                   <div className="relative h-80 w-full sm:h-96">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={item.image}
                       alt={item.name}

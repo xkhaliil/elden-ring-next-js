@@ -359,6 +359,7 @@ export default function Bosses() {
                     <div className="relative h-56 w-full overflow-hidden bg-stone-950">
                       {boss.image ? (
                         <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={boss.image}
                             alt={boss.name}

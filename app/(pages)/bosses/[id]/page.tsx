@@ -153,6 +153,7 @@ export default function BossDetail() {
               <div className="relative mb-12 overflow-hidden rounded-sm border border-stone-800/60">
                 {boss.image ? (
                   <div className="relative h-80 w-full sm:h-96">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={boss.image}
                       alt={boss.name}

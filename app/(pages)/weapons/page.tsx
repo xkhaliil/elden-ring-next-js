@@ -392,6 +392,7 @@ export default function Weapons() {
                     <div className="relative h-56 w-full overflow-hidden bg-stone-950">
                       {weapon.image ? (
                         <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={weapon.image}
                             alt={weapon.name}
