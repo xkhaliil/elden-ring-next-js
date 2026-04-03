@@ -2,16 +2,14 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { BossCard } from "@/components/bosses/BossCard";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import {
   ChevronLeft,
   ChevronRight,
-  Flame,
   Loader2,
   Search,
-  Shield,
   Skull,
   Swords,
   X,
@@ -186,14 +184,14 @@ export default function Bosses() {
         }}
       />
 
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-red-600 to-transparent" />
+      <div className="h-px w-full bg-linear-to-r from-transparent via-red-600 to-transparent" />
 
       <div className="mx-auto max-w-5xl px-6 py-16">
         <div className="mb-16 text-center">
           <div className="mb-4 flex items-center justify-center gap-3 text-red-600">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-red-600" />
+            <div className="h-px w-16 bg-linear-to-r from-transparent to-red-600" />
             <Skull className="h-5 w-5" />
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-red-600" />
+            <div className="h-px w-16 bg-linear-to-l from-transparent to-red-600" />
           </div>
 
           <h1
@@ -212,9 +210,9 @@ export default function Bosses() {
           </p>
 
           <div className="mt-6 flex items-center justify-center gap-3 text-red-700 opacity-60">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent to-red-700" />
+            <div className="h-px w-24 bg-linear-to-r from-transparent to-red-700" />
             <div className="h-1.5 w-1.5 rotate-45 bg-red-700" />
-            <div className="h-px w-24 bg-gradient-to-l from-transparent to-red-700" />
+            <div className="h-px w-24 bg-linear-to-l from-transparent to-red-700" />
           </div>
         </div>
 
@@ -347,90 +345,13 @@ export default function Bosses() {
               </div>
             )}
 
-            {paginated.map((boss) => {
-              const diff = getDifficulty(boss.healthPoints);
-              return (
-                <Card
-                  key={boss.id}
-                  onClick={() => router.push(`/bosses/${boss.id}`)}
-                  className="group cursor-pointer overflow-hidden border-stone-800/60 bg-stone-900/30 transition-all duration-300 hover:border-red-900 hover:bg-stone-900/60"
-                >
-                  <CardContent className="p-0">
-                    <div className="relative h-56 w-full overflow-hidden bg-stone-950">
-                      {boss.image ? (
-                        <>
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={boss.image}
-                            alt={boss.name}
-                            className="h-full w-full object-cover opacity-75 grayscale transition-all duration-500 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
-                          />
-                          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-stone-900 to-transparent" />
-                        </>
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center">
-                          <Skull className="h-12 w-12 text-stone-800" />
-                        </div>
-                      )}
-
-                      <div className="absolute top-3 right-3">
-                        <span
-                          className={`flex items-center gap-1.5 rounded-sm border px-2 py-0.5 text-xs backdrop-blur-sm ${diff.color}`}
-                        >
-                          <span
-                            className={`h-1.5 w-1.5 rounded-full ${diff.dot}`}
-                          />
-                          {diff.label}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="px-4 py-4">
-                      <h2 className="mb-1 text-base leading-tight font-semibold text-stone-100 transition-colors group-hover:text-red-300">
-                        {boss.name}
-                      </h2>
-
-                      <p className="mb-3 line-clamp-2 text-xs text-stone-500 italic">
-                        {boss.description || "No lore recorded."}
-                      </p>
-
-                      <div className="flex flex-col gap-1.5 text-xs text-stone-600">
-                        {boss.location && (
-                          <span className="flex items-center gap-1.5">
-                            <Shield className="h-3 w-3 flex-shrink-0" />
-                            <span className="truncate">{boss.location}</span>
-                          </span>
-                        )}
-                        {boss.drops?.length > 0 && (
-                          <span className="flex items-start gap-1.5">
-                            <Flame className="mt-0.5 h-3 w-3 flex-shrink-0 text-orange-700" />
-                            <span className="line-clamp-1">
-                              {boss.drops.slice(0, 2).join(", ")}
-                              {boss.drops.length > 2 &&
-                                ` +${boss.drops.length - 2} more`}
-                            </span>
-                          </span>
-                        )}
-                      </div>
-
-                      <Separator className="my-3 bg-stone-800" />
-
-                      <div className="flex items-center justify-between">
-                        {boss.healthPoints > 0 ? (
-                          <span className="text-xs text-stone-600">
-                            {boss.healthPoints.toLocaleString()}{" "}
-                            <span className="text-stone-700">HP</span>
-                          </span>
-                        ) : (
-                          <span />
-                        )}
-                        <ChevronRight className="h-4 w-4 text-stone-700 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-red-700" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {paginated.map((boss) => (
+              <BossCard
+                key={boss.id}
+                boss={boss}
+                onClick={() => router.push(`/bosses/${boss.id}`)}
+              />
+            ))}
           </div>
         )}
 
