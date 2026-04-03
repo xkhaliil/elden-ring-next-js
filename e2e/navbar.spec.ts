@@ -1,61 +1,37 @@
 import { expect, test } from "@playwright/test";
 
-// test("has title", async ({ page }) => {
-//   await page.goto("https://elden-ring-next-js.vercel.app/");
-//   await expect(page).toHaveTitle("Elden Ring Wiki");
-// });
+test.describe("Bosses page filtering", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("http://localhost:3000/bosses");
+    await expect(page.getByText("Summoning the fallen…")).not.toBeVisible({
+      timeout: 10000,
+    });
+  });
 
-// test("Navbar has logo", async ({ page }) => {
-//   await page.goto("https://elden-ring-next-js.vercel.app/");
+  test("medium difficulty filter", async ({ page }) => {
+    await page.getByRole("button", { name: "Medium" }).click();
 
-//   const logo = page.getByRole("img", { name: "Logo" }).first();
-//   await expect(logo).toBeVisible();
-// });
+    const cards = page.locator('[class*="cursor-pointer"]');
+    const count = await cards.count();
 
-// test("Navbar has links", async ({ page }) => {
-//   await page.goto("https://elden-ring-next-js.vercel.app/");
+    const badges = page.getByText("Medium", { exact: true });
+    const badgeCount = await badges.count();
 
-//   const homeLink = page.getByRole("link", { name: "Bosses" }).first();
-//   await expect(homeLink).toBeVisible();
+    expect(badgeCount).toBe(count / 2);
+  });
 
-//   const charactersLink = page.getByRole("link", { name: "Weapons" }).first();
-//   await expect(charactersLink).toBeVisible();
+  test("search with nonsense lol", async ({ page }) => {
+    await page
+      .getByPlaceholder("Search by name, location, or drop…")
+      .fill("213389123123");
 
-//   const charactersLink2 = page.getByRole("link", { name: "Items" }).first();
-//   await expect(charactersLink2).toBeVisible();
-// });
+    await expect(page.getByText("No boss answers your call…")).toBeVisible();
+    await expect(page.getByText(/0 enemies found/)).toBeVisible();
+  });
 
-test("go down button works", async ({ page }) => {
-  await page.goto("http://localhost:3000");
-  const goDownButton = page.getByRole("img", { name: "Go down" }).first();
-  await expect(goDownButton).toBeVisible();
-});
-
-test("click on bosses link and be routered to bosses page", async ({
-  page,
-}) => {
-  await page.goto("http://localhost:3000");
-  const bossesLink = page.getByText("Search Bosses");
-  await expect(bossesLink).toBeVisible();
-  await bossesLink.click();
-
-  await expect(page).toHaveURL("http://localhost:3000/bosses");
-});
-
-test("click on weapons link and be routered to weapons page", async ({
-  page,
-}) => {
-  await page.goto("http://localhost:3000");
-  const weaponsLink = page.getByText("Search Weapons");
-  await expect(weaponsLink).toBeVisible();
-  await weaponsLink.click();
-  await expect(page).toHaveURL("http://localhost:3000/weapons");
-});
-
-test("click on items link and be routered to items page", async ({ page }) => {
-  await page.goto("http://localhost:3000");
-  const itemsLink = page.getByText("Search Items");
-  await expect(itemsLink).toBeVisible();
-  await itemsLink.click();
-  await expect(page).toHaveURL("http://localhost:3000/items");
+  test("no drops test", async ({ page }) => {
+    await page.getByRole("button", { name: "No Drops" }).click();
+    const dropIcons = page.locator('[data-lucide="flame"]');
+    await expect(dropIcons).toHaveCount(0);
+  });
 });
